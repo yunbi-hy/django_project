@@ -1,5 +1,7 @@
+from django.shortcuts import get_object_or_404, render
 from django.urls import path
 from.import views
+from .models import Question
 
 app_name = 'polls'
 

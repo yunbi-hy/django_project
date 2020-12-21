@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Bookmark List{% endblock %}
+
+{% block content %}
 <h1>{{question.question_text}}</h1>
 <ul>
     {% for choice in question.choice_set.all %}
     <li>{{choice.choice_text}} -- {{choice.votes}} vote{{choice.votes|pluralize}}</li>
     {% endfor %}
 </ul>
-<a href="{% url polls:detail question.id %}">Vote again?</a>
-</body>
-</html>
+<p>
+    <br><br><br><br>
+</p>
+<a href="{% url 'polls:detail' question.id %}" class="btn btn-secondary" >Vote again?</a>
+{% endblock %}
